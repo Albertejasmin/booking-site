@@ -4,6 +4,8 @@ import LandingArtists from "@/components/LandingArtists";
 import LandingProgram from "@/components/LandingProgram";
 import LandingStages from "@/components/LandingStages";
 
+// Når vi parser props, hedder det prop drilling
+// Prop drilling = parent component parser data ned til sine chrildren, som så sender det videre deres egne børn.
 export default function Home({ bandData }) {
   return (
     <section>
@@ -28,3 +30,4 @@ export async function getServerSideProps() {
     },
   };
 }
+// isLanding = boolean, som sætter den dynamiske klasse.

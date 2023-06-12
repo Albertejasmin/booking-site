@@ -2,9 +2,10 @@ import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 import Head from "next/head";
 
-export async function getStaticProps() {
-  return { props: { isLanding: true } };
-}
+// Gør det kun når man bygger hjemme siden,
+// export async function getStaticProps() {
+//   return { props: { isLanding: true } };
+// }
 
 export default function LandingProgram({ bandData }) {
   return (
