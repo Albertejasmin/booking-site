@@ -17,21 +17,17 @@ export default function TicketsSection() {
         value={formData.date}
         required
         onChange={(e) =>
+          // dispatch opdaterer det globale obejct og returner en ny opdateret state. global object bliver opdateret med den nye state.
           dispatch({
             //dispatch to the global formData obj. with new state value
             action: "UPDATE_FIELD",
+            // definere hvilket input felt og værdi
             payload: { field: "date", value: e.target.value },
           })
         }
       />
       <br></br>{" "}
-      <InputLabel
-        id="dropdown-label"
-        label="ticket-type"
-        placeholder="Ticket-type"
-        className={styles.dropdownLabel}
-        style={{ position: "relative" }}
-      >
+      <InputLabel id="dropdown-label" label="ticket-type" placeholder="Ticket-type" className={styles.dropdownLabel} style={{ position: "relative" }}>
         Choose ticket type
       </InputLabel>
       <Select

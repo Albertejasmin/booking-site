@@ -8,6 +8,8 @@ import TicketsSection from "./TicketSection";
 import { formDataContext } from "@/contexts/bookingContext";
 
 export default function MainTicket({ spotData, currentStepSetter }) {
+  // bruges til åben lukke function af info boks
+  // kunne have været lavet som component så den kunne bruges flere steder
   const [open, setOpen] = useState(false);
 
   //context call on the parent
@@ -17,13 +19,16 @@ export default function MainTicket({ spotData, currentStepSetter }) {
     setOpen(!open);
   };
 
+  // vi får adgang til api'en, vores end-point -
   function reserveSpot(e) {
     e.preventDefault();
     fetch("https://nova-enchanted-confidence.glitch.me/reserve-spot", {
+      // put = vi sender noget til endpointet som vi senere kan hente med get
       method: "put",
       headers: {
         "Content-Type": "application/json",
       },
+      // den data vi sender med
       body: JSON.stringify({
         area: formData.formData.area,
         amount: formData.formData.ticketAmount,
@@ -33,6 +38,7 @@ export default function MainTicket({ spotData, currentStepSetter }) {
       .then((data) => {
         console.log(data.id);
         /* sætter formDatas id til at være det id vi får i response så det kan sende med videre */
+        // for et id til vores data et id, som tilføjes til de globale object.
         formData.formData.id = data.id;
         handleNextFormComponent();
       });
