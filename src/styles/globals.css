@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+.stickyNavigation {
+  position: static;
+}
+
 :root {
   --heading: condor-extended, sans-serif;
   --paragraph: eurostile, sans-serif;

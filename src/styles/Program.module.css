@@ -32,7 +32,7 @@
   line-height: 3.5rem;
 }
 
-.programText span:hover {
+.programText:hover {
   cursor: pointer;
   color: white;
 }
