@@ -1,3 +1,16 @@
+/* SEARCH BAR */
+
+.search {
+  text-align: center;
+  opacity: 90%;
+  margin-bottom: 4rem;
+}
+
+.highlight {
+  background-color: yellow;
+  font-weight: bold;
+}
+
 /* PROGRAM */
 
 .programContainer h2 {
@@ -19,8 +32,7 @@
   line-height: 3.5rem;
 }
 
-
-.programText span:hover {
+.programText:hover {
   cursor: pointer;
   color: white;
 }
@@ -37,7 +49,7 @@
   font-weight: bold;
   text-align: center;
   display: grid;
-  margin-bottom: 8rem;
+  margin-bottom: 3rem;
   text-decoration: none;
 }
 .link:hover {

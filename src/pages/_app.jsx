@@ -4,10 +4,15 @@ import Navigation from "@/components/Navigation";
 import BookingDisplay from "./booking_display";
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
+// Importerer Program og Schedule for at kunne
+// import Program from "./program";
+// import StickyHeadTable from "./schedule";
 
 export default function MyApp({ Component, pageProps }) {
   // Checker om current page er BookingDisplay, bruges til at fjerne navigation
   const isBookingDisplayPage = Component === BookingDisplay;
+
+  // const navigationStatic = Program || StickyHeadTable ? "stickyNavigation" : "";
 
   useEffect(() => {
     // destructurere pageProps, så det kun er pagePropsne defineret inde i const
