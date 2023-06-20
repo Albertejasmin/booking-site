@@ -35,6 +35,10 @@ export default function Program({ scheduleData, bandData }) {
     setShowModal(true);
   };
 
+  const midData = scheduleData.Midgard;
+  const jotData = scheduleData.Jotunheim;
+  const vanData = scheduleData.Vanaheim;
+
   return (
     <>
       <Head>
@@ -54,44 +58,44 @@ export default function Program({ scheduleData, bandData }) {
 
           <ProgramContainer
             title="Monday"
-            events={scheduleData.Midgard.mon.concat(scheduleData.Jotunheim.mon, scheduleData.Vanaheim.mon).filter((bandEvent) => bandEvent.act.toLowerCase().includes(searchResults.toLowerCase()))}
+            events={midData.mon.concat(jotData.mon, vanData.mon).filter((bandEvent) => bandEvent.act.toLowerCase().includes(searchResults.toLowerCase()))}
             handleBandSelection={handleBandSelection}
             searchResults={searchResults}
           />
 
           <ProgramContainer
             title="Tuesday"
-            events={scheduleData.Midgard.tue.concat(scheduleData.Jotunheim.tue, scheduleData.Vanaheim.tue).filter((bandEvent) => bandEvent.act.toLowerCase().includes(searchResults.toLowerCase()))}
+            events={midData.tue.concat(jotData.tue, vanData.tue).filter((bandEvent) => bandEvent.act.toLowerCase().includes(searchResults.toLowerCase()))}
             handleBandSelection={handleBandSelection}
             searchResults={searchResults}
           />
           <ProgramContainer
             title="Wednesday"
-            events={scheduleData.Midgard.tue.concat(scheduleData.Jotunheim.tue, scheduleData.Vanaheim.tue).filter((bandEvent) => bandEvent.act.toLowerCase().includes(searchResults.toLowerCase()))}
+            events={midData.tue.concat(jotData.tue, vanData.tue).filter((bandEvent) => bandEvent.act.toLowerCase().includes(searchResults.toLowerCase()))}
             handleBandSelection={handleBandSelection}
             searchResults={searchResults}
           />
           <ProgramContainer
             title="Thursday"
-            events={scheduleData.Midgard.tue.concat(scheduleData.Jotunheim.tue, scheduleData.Vanaheim.tue).filter((bandEvent) => bandEvent.act.toLowerCase().includes(searchResults.toLowerCase()))}
+            events={midData.tue.concat(jotData.tue, vanData.tue).filter((bandEvent) => bandEvent.act.toLowerCase().includes(searchResults.toLowerCase()))}
             handleBandSelection={handleBandSelection}
             searchResults={searchResults}
           />
           <ProgramContainer
             title="Friday"
-            events={scheduleData.Midgard.tue.concat(scheduleData.Jotunheim.tue, scheduleData.Vanaheim.tue).filter((bandEvent) => bandEvent.act.toLowerCase().includes(searchResults.toLowerCase()))}
+            events={midData.tue.concat(jotData.tue, vanData.tue).filter((bandEvent) => bandEvent.act.toLowerCase().includes(searchResults.toLowerCase()))}
             handleBandSelection={handleBandSelection}
             searchResults={searchResults}
           />
           <ProgramContainer
             title="Saturday"
-            events={scheduleData.Midgard.tue.concat(scheduleData.Jotunheim.tue, scheduleData.Vanaheim.tue).filter((bandEvent) => bandEvent.act.toLowerCase().includes(searchResults.toLowerCase()))}
+            events={midData.tue.concat(jotData.tue, vanData.tue).filter((bandEvent) => bandEvent.act.toLowerCase().includes(searchResults.toLowerCase()))}
             handleBandSelection={handleBandSelection}
             searchResults={searchResults}
           />
           <ProgramContainer
             title="Sunday"
-            events={scheduleData.Midgard.tue.concat(scheduleData.Jotunheim.tue, scheduleData.Vanaheim.tue).filter((bandEvent) => bandEvent.act.toLowerCase().includes(searchResults.toLowerCase()))}
+            events={midData.tue.concat(jotData.tue, vanData.tue).filter((bandEvent) => bandEvent.act.toLowerCase().includes(searchResults.toLowerCase()))}
             handleBandSelection={handleBandSelection}
             searchResults={searchResults}
           />
