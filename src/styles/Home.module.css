@@ -63,7 +63,6 @@
 }
 
 .burgerIcon {
-  
   background-color: transparent;
   width: auto;
 }
@@ -150,7 +149,6 @@ button.burgerIcon:hover {
   z-index: 1;
   place-self: center;
 }
-
 
 .landingArtistGrid div h3 {
   z-index: 1;
