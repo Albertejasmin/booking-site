@@ -12,7 +12,6 @@ const ProgramContainer = ({ title, events, handleBandSelection, searchResults })
             return null;
           }
           // Gemmer den oprindelige 'act'-streng fra 'bandEvent'.
-          // Bruges senere til at opdele 'act' i tre dele: 'beforeMatch', 'match' og 'afterMatch'.
           const act = bandEvent.act;
           // sætter start indexet af searchResults.
           const index = act.toLowerCase().indexOf(searchResults.toLowerCase());
