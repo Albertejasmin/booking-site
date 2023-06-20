@@ -10,16 +10,20 @@ export default function Program({ scheduleData, bandData }) {
   const [showModal, setShowModal] = useState(false);
   const [searchResults, setSearchResults] = useState("");
 
+  const midData = scheduleData.Midgard;
+  const jotData = scheduleData.Jotunheim;
+  const vanData = scheduleData.Vanaheim;
+
   // callback function that is called when a band event is clicked. It takes the selected bandEvent and day as a parameter.
   const handleBandSelection = (bandEvent, day) => {
     // opretter en variabel og tildeler den en værdi baseret på resultatet filtrering af dataene
     // Hvis længden af det filtrerede array er større end nul, bliver værdien sand
-    let stage = scheduleData.Jotunheim[day].filter((act) => act.act === bandEvent.act).length ? "Jotunheim" : false;
+    let stage = jotData[day].filter((act) => act.act === bandEvent.act).length ? "Jotunheim" : false;
     if (!stage) {
-      stage = scheduleData.Midgard[day].filter((act) => act.act === bandEvent.act).length ? "Midgard" : false;
+      stage = midData[day].filter((act) => act.act === bandEvent.act).length ? "Midgard" : false;
     }
     if (!stage) {
-      stage = scheduleData.Vanaheim[day].filter((act) => act.act === bandEvent.act).length ? "Vanaheim" : false;
+      stage = vanData[day].filter((act) => act.act === bandEvent.act).length ? "Vanaheim" : false;
     }
 
     // søger efter et objekt i bandData-arrayet, hvor name-attributtet er lig med bandEvent.act.
@@ -34,10 +38,6 @@ export default function Program({ scheduleData, bandData }) {
     });
     setShowModal(true);
   };
-
-  const midData = scheduleData.Midgard;
-  const jotData = scheduleData.Jotunheim;
-  const vanData = scheduleData.Vanaheim;
 
   return (
     <>

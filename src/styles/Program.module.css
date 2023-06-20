@@ -2,8 +2,23 @@
 
 .search {
   text-align: center;
-  opacity: 90%;
+  /* opacity: 90%; */
   margin-bottom: 4rem;
+}
+.search input {
+  border: none;
+}
+.search input[type="search"] {
+  padding: 0.5rem 1rem;
+  font-family: var(--paragraph);
+  background-color: transparent;
+  font-size: var(--p);
+  border-bottom: solid 2px black;
+}
+.search input[type="search"]:focus {
+  background-color: white;
+  border: none;
+  outline: none;
 }
 
 .highlight {
