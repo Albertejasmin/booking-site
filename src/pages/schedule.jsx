@@ -13,6 +13,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 
+// array bestående af objekter der repræsenterer kolonnerne
 const columns = [
   {
     id: "time00",
@@ -89,20 +90,8 @@ const columns = [
   },
 ];
 
-function createData(
-  time00,
-  time02,
-  time04,
-  time06,
-  time08,
-  time10,
-  time12,
-  time14,
-  time16,
-  time18,
-  time20,
-  time22
-) {
+// funktion der opretter et object, der repræsentere datarækken
+function createData(time00, time02, time04, time06, time08, time10, time12, time14, time16, time18, time20, time22) {
   return {
     time00,
     time02,
@@ -120,45 +109,22 @@ function createData(
 }
 
 export default function StickyHeadTable({ schedule }) {
+  // object med properties der arrays af "aktiviteter"
+  // ... spread operator, spreder elementer af arrayet returneret af days funktionen.
   const rows = {
-    Monday: [
-      createData(...days("mon", "Midgard")),
-      createData(...days("mon", "Vanaheim")),
-      createData(...days("mon", "Jotunheim")),
-    ],
-    Tuesday: [
-      createData(...days("tue", "Midgard")),
-      createData(...days("tue", "Vanaheim")),
-      createData(...days("tue", "Jotunheim")),
-    ],
-    Wednesday: [
-      createData(...days("wed", "Midgard")),
-      createData(...days("wed", "Vanaheim")),
-      createData(...days("wed", "Jotunheim")),
-    ],
-    Thursday: [
-      createData(...days("thu", "Midgard")),
-      createData(...days("thu", "Vanaheim")),
-      createData(...days("thu", "Jotunheim")),
-    ],
-    Friday: [
-      createData(...days("fri", "Midgard")),
-      createData(...days("fri", "Vanaheim")),
-      createData(...days("fri", "Jotunheim")),
-    ],
-    Saturday: [
-      createData(...days("sat", "Midgard")),
-      createData(...days("sat", "Vanaheim")),
-      createData(...days("sat", "Jotunheim")),
-    ],
-    Sunday: [
-      createData(...days("sun", "Midgard")),
-      createData(...days("sun", "Vanaheim")),
-      createData(...days("sun", "Jotunheim")),
-    ],
+    Monday: [createData(...days("mon", "Midgard")), createData(...days("mon", "Vanaheim")), createData(...days("mon", "Jotunheim"))],
+    Tuesday: [createData(...days("tue", "Midgard")), createData(...days("tue", "Vanaheim")), createData(...days("tue", "Jotunheim"))],
+    Wednesday: [createData(...days("wed", "Midgard")), createData(...days("wed", "Vanaheim")), createData(...days("wed", "Jotunheim"))],
+    Thursday: [createData(...days("thu", "Midgard")), createData(...days("thu", "Vanaheim")), createData(...days("thu", "Jotunheim"))],
+    Friday: [createData(...days("fri", "Midgard")), createData(...days("fri", "Vanaheim")), createData(...days("fri", "Jotunheim"))],
+    Saturday: [createData(...days("sat", "Midgard")), createData(...days("sat", "Vanaheim")), createData(...days("sat", "Jotunheim"))],
+    Sunday: [createData(...days("sun", "Midgard")), createData(...days("sun", "Vanaheim")), createData(...days("sun", "Jotunheim"))],
   };
 
+  // state variabler sat til at vise mandag
+  // day = viser den valgte dag (h2)
   const [day, setDay] = useState("Monday");
+  // viser dag der displayed i schedule.
   const [displayedDay, setDisplayedDay] = useState("Monday");
 
   // Function to update the displayed day and rows based on the selected day
@@ -190,22 +156,26 @@ export default function StickyHeadTable({ schedule }) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
+  // genererer et array af aktiviteter baseret på den givne day og stage.
   function days(day, stage) {
     // Object to store the results
     const results = [];
     //for (const day in schedule.Midgard) {
 
+    // hent data fra den givne dag og scene fra schedule
     const activities = schedule[stage][day];
+
+    //  "for...of" loop, itererer over activities array
+    // for hver iteration gives det nuværende elemente af arrayet variablen "activity"
     for (const activity of activities) {
       if (activity.act !== "break") {
+        // hvis der ikke er break, tilføj activity til results array
         results.push(activity.act);
       } else {
-        // Push an empty string as a placeholder for the empty spot
+        // Hvis der er, tilføj tøm string som placeholder
         results.push("");
       }
     }
-
-    //}
     console.log({ results });
     return results;
   }
@@ -243,9 +213,7 @@ export default function StickyHeadTable({ schedule }) {
           Sunday
         </button>
       </div>
-      <p className={stylesSchedule.scroll_tekst}>
-        Scroll left by buttons to see more weekdays
-      </p>
+      <p className={stylesSchedule.scroll_tekst}>Scroll left by buttons to see more weekdays</p>
       <h2 className={stylesSchedule.dayName}>{day}</h2>
       <section className={stylesSchedule.scheduleSection}>
         <div className={stylesSchedule.scheduleStages}>
@@ -253,19 +221,13 @@ export default function StickyHeadTable({ schedule }) {
           <h3 className={stylesSchedule.scene_van}>Vanaheim</h3>
           <h3 className={stylesSchedule.scene_jotu}>Jotunheim</h3>
         </div>
-        <Paper
-          sx={{ width: "100%", overflow: "hidden", bgcolor: "transparent" }}
-        >
+        <Paper sx={{ width: "100%", overflow: "hidden", bgcolor: "transparent" }}>
           <TableContainer sx={{ maxHeight: 600, overflow: "scroll" }}>
             <Table stickyHeader aria-label="sticky table">
               <TableHead>
                 <TableRow sx={{ height: "80px", opacity: "80%" }}>
                   {columns.map((column) => (
-                    <TableCell
-                      key={column.id}
-                      align={column.align}
-                      style={{ minWidth: column.minWidth }}
-                    >
+                    <TableCell key={column.id} align={column.align} style={{ minWidth: column.minWidth }}>
                       {column.label}
                     </TableCell>
                   ))}
@@ -273,30 +235,20 @@ export default function StickyHeadTable({ schedule }) {
               </TableHead>
               <TableBody>
                 {/* changed the MUI "structure" from rows to displayedRows */}
-                {displayedRows
-                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                  .map((row) => {
-                    return (
-                      <TableRow
-                        hover
-                        role="checkbox"
-                        tabIndex={-1}
-                        key={row.code}
-                        sx={{ height: "170px" }}
-                      >
-                        {columns.map((column) => {
-                          const value = row[column.id];
-                          return (
-                            <TableCell key={column.id} align={column.align}>
-                              {column.format && typeof value === "number"
-                                ? column.format(value)
-                                : value}
-                            </TableCell>
-                          );
-                        })}
-                      </TableRow>
-                    );
-                  })}
+                {displayedRows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+                  return (
+                    <TableRow hover role="checkbox" tabIndex={-1} key={row.code} sx={{ height: "170px" }}>
+                      {columns.map((column) => {
+                        const value = row[column.id];
+                        return (
+                          <TableCell key={column.id} align={column.align}>
+                            {column.format && typeof value === "number" ? column.format(value) : value}
+                          </TableCell>
+                        );
+                      })}
+                    </TableRow>
+                  );
+                })}
               </TableBody>
             </Table>
           </TableContainer>
