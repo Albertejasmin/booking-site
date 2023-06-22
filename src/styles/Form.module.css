@@ -26,7 +26,7 @@
 .form {
   display: grid;
   place-content: center;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 .formBackground {
   background-image: url("/ticket.svg");
@@ -152,9 +152,15 @@
 @media (min-width: 750px) {
   /* form Pay overview */
   .body {
-    display: flex;
+    align-content: start;
     justify-content: center;
     gap: 1rem;
+  }
+  /* NYT til form_pay */
+  .nySection {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
   }
 }
 

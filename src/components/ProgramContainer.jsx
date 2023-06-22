@@ -1,6 +1,6 @@
 import stylesProgram from "../styles/Program.module.css";
 
-const ProgramContainer = ({ title, events, handleBandSelection, searchResults }) => {
+export default function ProgramContainer({ title, events, handleBandSelection, searchResults }) {
   if (events.length > 0) {
     return (
       <section className={stylesProgram.programContainer}>
@@ -44,6 +44,4 @@ const ProgramContainer = ({ title, events, handleBandSelection, searchResults })
   }
 
   return null;
-};
-
-export default ProgramContainer;
+}

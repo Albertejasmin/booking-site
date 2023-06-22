@@ -38,7 +38,7 @@ const initialState = {
 
 //purpose of reducers returns the next state
 // Bruger reducer for at bryde vores "opdateringer" af state ned
-// kigger efter 2 parametere action og state -  reducer reducerer så vi tagfer smp bidder af hele det samlede initialState
+// kigger efter 2 parametere action og state -  reducer reducerer så vi tager små bidder af hele det samlede initialState
 function reducer(state, action) {
   console.log(action);
   // switch kigger efter parametre

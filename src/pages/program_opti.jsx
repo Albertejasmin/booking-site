@@ -19,6 +19,7 @@ export default function Program({ scheduleData, bandData }) {
     // opretter en variabel og tildeler den en værdi baseret på resultatet filtrering af dataene
     // Hvis længden af det filtrerede array er større end nul, bliver værdien sand
     let stage = jotData[day].filter((act) => act.act === bandEvent.act).length ? "Jotunheim" : false;
+    // checker om nogle af elementerne i arrayet har en act property der lig med bandEvent.act
     if (!stage) {
       stage = midData[day].filter((act) => act.act === bandEvent.act).length ? "Midgard" : false;
     }

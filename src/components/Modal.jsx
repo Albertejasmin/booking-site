@@ -7,13 +7,12 @@ export default function Modal({ selectedBand, handleCloseModal, showModal }) {
   if (!selectedBand || !showModal) {
     return null;
   }
+  // seperate variabler fra selectedBand
   const { act, start, end, bandInfo, stage, day, cancelled } = selectedBand;
   console.log(selectedBand);
 
   // Check if the logo includes "http"
-  const logoSrc = bandInfo.logo.includes("http")
-    ? bandInfo.logo
-    : `https://nova-enchanted-confidence.glitch.me/logos/${bandInfo.logo}`;
+  const logoSrc = bandInfo.logo.includes("http") ? bandInfo.logo : `https://nova-enchanted-confidence.glitch.me/logos/${bandInfo.logo}`;
 
   function getFullDayName(day) {
     const dayMap = {
@@ -35,20 +34,13 @@ export default function Modal({ selectedBand, handleCloseModal, showModal }) {
       </Head>
       <section className={styles.ModalSection}>
         {/* Button to close the modal */}
-        <button
-          className={styles.ModalButton}
-          onClick={() => handleCloseModal(false)}
-        >
+        <button className={styles.ModalButton} onClick={() => handleCloseModal(false)}>
           Back to program
         </button>
         <img className={styles.ModalImg} src={logoSrc} alt="Logo" />
         {/* Ternary hvis band er cancelled(true), "cancelled" tilføjes. Span giver udstreget styling  */}
         <h1 className={styles.ModalArtistName}>
-          {cancelled ? (
-            <span className={styles.CancelledName}>{act}</span>
-          ) : (
-            <span>{act}</span>
-          )}
+          {cancelled ? <span className={styles.CancelledName}>{act}</span> : <span>{act}</span>}
           {cancelled ? " CANCELLED" : ""}
         </h1>
       </section>
