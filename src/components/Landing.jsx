@@ -19,7 +19,7 @@ export default function Landing() {
           <button>BUY TICKET</button>
         </Link>
 
-        <button onClick={redirectToExternalLink}>THE FESTIVAL APP</button>
+        <button onClick={redirectToExternalLink}>DOWNLOAD THE FESTIVAL APP</button>
       </div>
 
       <p className={styles.landingQuote}>
