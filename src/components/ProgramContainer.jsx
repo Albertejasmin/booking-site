@@ -5,7 +5,7 @@ export default function ProgramContainer({ title, events, handleBandSelection, s
     return (
       <section className={stylesProgram.programContainer}>
         <h2>{title}</h2>
-        {/* skaber et nyt array - callback funktion der tager bandEvent som argument */}
+        {/* skaber et nyt array - iterer over bandEvent */}
         {events.map((bandEvent) => {
           if (bandEvent.act.includes("break")) {
             // Skip rendering the band event if it includes "break"
