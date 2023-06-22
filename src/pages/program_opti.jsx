@@ -15,7 +15,7 @@ export default function Program({ scheduleData, bandData }) {
   const vanData = scheduleData.Vanaheim;
 
   // callback function that is called when a band event is clicked. It takes the selected bandEvent and day as a parameter.
-  const handleBandSelection = (bandEvent, day) => {
+  function handleBandSelection(bandEvent, day) {
     // opretter en variabel og tildeler den en værdi baseret på resultatet filtrering af dataene
     // Hvis længden af det filtrerede array er større end nul, bliver værdien sand
     let stage = jotData[day].filter((act) => act.act === bandEvent.act).length ? "Jotunheim" : false;
@@ -38,7 +38,7 @@ export default function Program({ scheduleData, bandData }) {
       bandInfo,
     });
     setShowModal(true);
-  };
+  }
 
   return (
     <>

@@ -25,19 +25,13 @@ export default function ProgramContainer({ title, events, handleBandSelection, s
             const afterMatch = act.substring(index + searchResults.length);
 
             return (
-              <p className={stylesProgram.programText} key={bandEvent.act} onClick={() => handleBandSelection(bandEvent, "mon")}>
+              <p className={stylesProgram.programText} key={bandEvent.act} onClick={() => handleBandSelection(bandEvent)}>
                 <span>{" " + beforeMatch}</span>
                 <span className={stylesProgram.highlight}>{match}</span>
                 <span>{afterMatch}</span> /
               </p>
             );
           }
-
-          return (
-            <p className={stylesProgram.programText} key={bandEvent.act} onClick={() => handleBandSelection(bandEvent, "mon")}>
-              {" " + bandEvent.act} /
-            </p>
-          );
         })}
       </section>
     );
